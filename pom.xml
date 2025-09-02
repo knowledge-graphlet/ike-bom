@@ -8,7 +8,6 @@
         <groupId>dev.ikm.ike</groupId>
         <artifactId>ike-incubator</artifactId>
         <version>0.1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>dev.ikm.ike</groupId>
@@ -22,10 +21,10 @@
         <!-- Central version properties -->
         <dev.ikm.elk.version>0.39.5</dev.ikm.elk.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <junit-jupiter.version>5.11.0</junit-jupiter.version>
         <komet.version>1.55.0-SNAPSHOT</komet.version>
-        <log4j.version>2.23.1</log4j.version>
+        <log4j.version>3.0.0-beta2</log4j.version>
         <maven-plugin-annotations.version>3.13.1</maven-plugin-annotations.version>
         <maven-plugin-api.version>4.0.0-rc-4</maven-plugin-api.version>
         <maven-plugin-plugin.version>3.15.1</maven-plugin-plugin.version>
@@ -36,6 +35,44 @@
     <dependencyManagement>
         <dependencies>
             <!-- BOM of external parents to align versions where applicable -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j2-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!-- Pin all Log4j modules to the same version (avoid 3.0.0-alpha1 on classpath) -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-plugins</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!-- Ensure ASM supports Java 25 (classfile major 69) across all transitive uses -->
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>9.8</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-commons</artifactId>
+                <version>9.8</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-tree</artifactId>
+                <version>9.8</version>
+            </dependency>
+
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-owl-implementation</artifactId>
@@ -142,17 +179,192 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>dev.ikm.komet</groupId>
-                <artifactId>komet-parent</artifactId>
-                <version>${komet.version}</version>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>tinkar-core</artifactId>
+                <version>${tinkar.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
-                <artifactId>tinkar-core</artifactId>
+                <artifactId>common</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>collection</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>component</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>terms</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>entity</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>search-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>entity-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>data-spinedarray-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>executor-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>language-extensions</artifactId>
                 <version>${tinkar.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>binding-extension</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>owl-extension</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>data-ephemeral-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>data-mvstore-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>data-websocket-client-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>changeset-writer-provider</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>reasoner</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>reasoner-elk-owl</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>reasoner-elk-snomed</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>reasoner-elk-snomed-test</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>reasoner-hybrid</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>reasoner-service</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>integration</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>aggregator</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>events</artifactId>
+                <version>${tinkar.version}</version>
+                <type>jar</type>
                 <scope>import</scope>
             </dependency>
 
@@ -166,11 +378,6 @@
                 <groupId>org.apache.maven.plugin-tools</groupId>
                 <artifactId>maven-plugin-annotations</artifactId>
                 <version>${maven-plugin-annotations.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-slf4j2-impl</artifactId>
-                <version>${log4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.collections</groupId>
