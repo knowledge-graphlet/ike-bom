@@ -18,17 +18,24 @@
     <description>Centralizes dependency versions for all IKE incubator modules.</description>
 
     <properties>
-        <!-- Central version properties -->
         <dev.ikm.elk.version>0.39.5</dev.ikm.elk.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <java.version>25</java.version>
+        <javafx.version>24.0.2</javafx.version>
+        <jna.version>5.14.0-r2-SNAPSHOT</jna.version>
+        <jsr305.version>3.0.2-r7</jsr305.version>
         <junit-jupiter.version>5.11.0</junit-jupiter.version>
+        <junit-platform.version>1.11.0</junit-platform.version>
         <komet.version>1.55.0-SNAPSHOT</komet.version>
         <log4j.version>3.0.0-beta2</log4j.version>
         <maven-plugin-annotations.version>3.13.1</maven-plugin-annotations.version>
         <maven-plugin-api.version>4.0.0-rc-4</maven-plugin-api.version>
         <maven-plugin-plugin.version>3.15.1</maven-plugin-plugin.version>
+        <nsmenufx.version>3.1.0</nsmenufx.version>
+        <one.jpro.platform.version>0.5.7</one.jpro.platform.version>
+        <rocks-kb.version>0.1.0-SNAPSHOT</rocks-kb.version>
         <rocksdbjni.version>10.4.2.r1-SNAPSHOT</rocksdbjni.version>
+        <tinkar-composer.version>1.10.0</tinkar-composer.version>
         <tinkar.version>1.123.0-SNAPSHOT</tinkar.version>
     </properties>
 
@@ -177,6 +184,66 @@
                 <version>${dev.ikm.elk.version}</version>
                 <type>jar</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>builder</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>classification</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>artifact</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>kview</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>details</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>navigator</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>list</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>progress</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>rules</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>search</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>executor</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
+                <artifactId>sync</artifactId>
+                <version>${komet.version}</version>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
@@ -385,15 +452,158 @@
                 <version>${eclipse-collections.version}</version>
             </dependency>
             <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>jna-jpms</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>jna-platform-jpms</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.rocksdb</groupId>
                 <artifactId>rocksdbjni</artifactId>
                 <version>${rocksdbjni.version}</version>
             </dependency>
             <dependency>
+                <groupId>dev.ikm.ike</groupId>
+                <artifactId>rocks-kb</artifactId>
+                <version>${rocks-kb.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
                 <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
             </dependency>
+            <!-- Explicitly manage granular JUnit 5 artifacts used by tests across modules -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit-jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.platform</groupId>
+                <artifactId>junit-platform-launcher</artifactId>
+                <version>${junit-platform.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>de.jangassen</groupId>
+                <artifactId>nsmenufx</artifactId>
+                <version>${nsmenufx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.carlfx</groupId>
+                <artifactId>cognitive</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.pixelduke</groupId>
+                <artifactId>fxcomponents</artifactId>
+                <version>1.6.2</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-base</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-graphics</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.openjfx</groupId>
+                        <artifactId>javafx-controls</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro</groupId>
+                <artifactId>jpro-webapi</artifactId>
+                <version>2025.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform</groupId>
+                <artifactId>jpro-auth-core</artifactId>
+                <version>${one.jpro.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform</groupId>
+                <artifactId>jpro-utils</artifactId>
+                <version>${one.jpro.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform.jpms</groupId>
+                <artifactId>testfx-core</artifactId>
+                <version>4.0.18-jpms</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform.jpms</groupId>
+                <artifactId>testfx-junit5</artifactId>
+                <version>4.0.18-jpms</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform.jpms</groupId>
+                <artifactId>openjfx-monocle</artifactId>
+                <version>21.0.2-jpms</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>composer</artifactId>
+                <version>${tinkar-composer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.controlsfx</groupId>
+                <artifactId>controlsfx</artifactId>
+                <version>11.2.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-controls</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-base</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-graphics</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-fxml</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform.jpms</groupId>
+                <artifactId>cssfx</artifactId>
+                <version>11.5.1-jpms</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 </project>
