@@ -14,19 +14,19 @@
     <artifactId>ike-bom</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>IKE BOM</name>
+    <name>IKE BOM ${project.version}</name>
     <description>Centralizes dependency versions for all IKE incubator modules.</description>
 
     <properties>
         <dev.ikm.elk.version>0.39.5</dev.ikm.elk.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <java.version>25</java.version>
-        <javafx.version>24.0.2</javafx.version>
+        <javafx.version>25</javafx.version>
         <jna.version>5.14.0-r2-SNAPSHOT</jna.version>
         <jsr305.version>3.0.2-r7</jsr305.version>
         <junit-jupiter.version>5.11.0</junit-jupiter.version>
         <junit-platform.version>1.11.0</junit-platform.version>
-        <komet.version>1.55.0-SNAPSHOT</komet.version>
+        <komet.version>1.56.0-gudid-db-SNAPSHOT</komet.version>
         <log4j.version>3.0.0-beta2</log4j.version>
         <maven-plugin-annotations.version>3.13.1</maven-plugin-annotations.version>
         <maven-plugin-api.version>4.0.0-rc-4</maven-plugin-api.version>
@@ -36,7 +36,7 @@
         <rocks-kb.version>0.1.0-SNAPSHOT</rocks-kb.version>
         <rocksdbjni.version>10.4.2.r1-SNAPSHOT</rocksdbjni.version>
         <tinkar-composer.version>1.10.0</tinkar-composer.version>
-        <tinkar.version>1.123.0-SNAPSHOT</tinkar.version>
+        <tinkar.version>1.125.0-gudid-db-SNAPSHOT</tinkar.version>
     </properties>
 
     <dependencyManagement>
