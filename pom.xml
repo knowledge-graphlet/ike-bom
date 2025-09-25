@@ -14,7 +14,7 @@
     <artifactId>ike-bom</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>IKE BOM ${project.version}</name>
+    <name>IKE BOM</name>
     <description>Centralizes dependency versions for all IKE incubator modules.</description>
 
     <properties>
