@@ -36,7 +36,7 @@
         <rocks-kb.version>0.1.0-SNAPSHOT</rocks-kb.version>
         <rocksdbjni.version>10.4.2.r1-SNAPSHOT</rocksdbjni.version>
         <tinkar-composer.version>1.10.0</tinkar-composer.version>
-        <tinkar.version>1.125.0-gudid-db-SNAPSHOT</tinkar.version>
+        <tinkar.version>1.126.0-gudid-db-SNAPSHOT</tinkar.version>
     </properties>
 
     <dependencyManagement>
