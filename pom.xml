@@ -22,7 +22,7 @@
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <java.version>25</java.version>
         <javafx.version>25</javafx.version>
-        <jna.version>5.14.0-r2-SNAPSHOT</jna.version>
+        <jna.version>5.18.1-r1-SNAPSHOT</jna.version>
         <jsr305.version>3.0.2-r7</jsr305.version>
         <junit-jupiter.version>6.0.0</junit-jupiter.version>
         <junit-platform.version>6.0.0</junit-platform.version>
