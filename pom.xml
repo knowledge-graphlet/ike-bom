@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 https://maven.apache.org/xsd/maven-4.1.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0 https://maven.apache.org/xsd/maven-4.1.0.xsd">
     <modelVersion>4.1.0</modelVersion>
 
     <parent>
-        <groupId>dev.ikm.ike</groupId>
-        <artifactId>ike-incubator</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <groupId>dev.ikm.build</groupId>
+        <artifactId>java-parent</artifactId>
+        <version>1.67.0-dist-SNAPSHOT</version>
     </parent>
 
     <groupId>dev.ikm.ike</groupId>
@@ -17,30 +18,121 @@
     <description>Centralizes dependency versions for all IKE incubator modules.</description>
 
     <properties>
+        <activej-bytebuf.version>4.3-r10</activej-bytebuf.version>
+        <apfloat.version>1.14.0-r1</apfloat.version>
         <asm.version>9.9</asm.version>
-        <dev.ikm.elk.version>0.39.5</dev.ikm.elk.version>
+        <caffeine.version>3.2.2</caffeine.version>
+        <dev.ikm.elk.version>0.39.6</dev.ikm.elk.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
-        <java.version>25</java.version>
+        <hybrid-reasoner-snomed.version>1.1.7</hybrid-reasoner-snomed.version>
+    <java.version>25</java.version>
         <javafx.version>25</javafx.version>
+        <jgrapht.version>1.5.2</jgrapht.version>
         <jna.version>5.18.1-r1-SNAPSHOT</jna.version>
         <jsr305.version>3.0.2-r7</jsr305.version>
         <junit-jupiter.version>6.0.0</junit-jupiter.version>
         <junit-platform.version>6.0.0</junit-platform.version>
         <komet.version>1.58.0-gudid-db-SNAPSHOT</komet.version>
         <log4j.version>3.0.0-beta2</log4j.version>
+        <lucene.version>10.3.1</lucene.version>
         <maven-plugin-annotations.version>3.15.1</maven-plugin-annotations.version>
         <maven-plugin-api.version>4.0.0-rc-4</maven-plugin-api.version>
         <maven-plugin-plugin.version>3.15.1</maven-plugin-plugin.version>
+        <mvstore.version>2.3.232-r3</mvstore.version>
         <nsmenufx.version>3.1.0</nsmenufx.version>
         <one.jpro.platform.version>0.5.7</one.jpro.platform.version>
         <rocks-kb.version>0.1.0-SNAPSHOT</rocks-kb.version>
         <rocksdbjni.version>10.4.2.r1-SNAPSHOT</rocksdbjni.version>
         <tinkar-composer.version>1.10.0</tinkar-composer.version>
         <tinkar.version>1.126.0-gudid-db-SNAPSHOT</tinkar.version>
+        <tinkar-schema.version>1.42.0</tinkar-schema.version>
+
+        <!-- Added consolidated properties for requested libs -->
+        <cognitive.version>1.6.1</cognitive.version>
+        <fxcomponents.version>1.6.2</fxcomponents.version>
+        <controlsfx.version>11.2.2</controlsfx.version>
+        <jpro.webapi.version>2025.2.0</jpro.webapi.version>
+        <!-- one.jpro.platform.* artifacts reuse one.jpro.platform.version -->
+        <!-- one.jpro.platform.jpms artifacts share same version too -->
+        <one.jpro.platform.jpms.version>4.0.18-jpms</one.jpro.platform.jpms.version>
+        <one.jpro.platform.jpms.cssfx.version>11.5.1-jpms</one.jpro.platform.jpms.cssfx.version>
+        <openjfx.monocle.version>21.0.2-jpms</openjfx.monocle.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>apfloat</artifactId>
+                <version>${apfloat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar.ext.owl</groupId>
+                <artifactId>owl-extension</artifactId>
+                <version>${tinkar.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>mvstore</artifactId>
+                <version>${mvstore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jgrapht</groupId>
+                <artifactId>jgrapht-core</artifactId>
+                <version>${jgrapht.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jheaps</groupId>
+                        <artifactId>jheaps</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>activej-bytebuf</artifactId>
+                <version>${activej-bytebuf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>tinkar-schema</artifactId>
+                <version>${tinkar-schema.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queries -->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-queryparser</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-queries</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-highlighter</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-backward-codecs</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-suggest</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
             <!-- BOM of external parents to align versions where applicable -->
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
@@ -84,106 +176,76 @@
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-owl-implementation</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-owl-model</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-owlapi</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-reasoner</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-snomed</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-snomed-owl</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-snomed-owl-el</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-snomed-reasoner</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-snomed-test</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-util-collections</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-util-common</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-util-concurrent</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-util-hashing</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-util-io</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.elk</groupId>
                 <artifactId>elk-util-logging</artifactId>
                 <version>${dev.ikm.elk.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.komet</groupId>
@@ -249,190 +311,141 @@
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>tinkar-core</artifactId>
                 <version>${tinkar.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>common</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>collection</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>component</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>terms</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>entity</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>search-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>entity-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>data-spinedarray-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>executor-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>language-extensions</artifactId>
                 <version>${tinkar.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>binding-extension</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>owl-extension</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>data-ephemeral-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>data-mvstore-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>data-websocket-client-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>changeset-writer-provider</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>reasoner</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>reasoner-elk-owl</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>reasoner-elk-snomed</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>reasoner-elk-snomed-test</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>reasoner-hybrid</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.hybrid-reasoner</groupId>
+                <artifactId>hybrid-reasoner-snomed</artifactId>
+                <version>${hybrid-reasoner-snomed.version}</version>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>reasoner-service</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>integration</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>aggregator</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>events</artifactId>
                 <version>${tinkar.version}</version>
-                <type>jar</type>
-                <scope>import</scope>
             </dependency>
 
             <!-- Common direct dependencies with managed versions -->
@@ -503,6 +516,7 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- Consolidated management for requested artifacts (versions via properties) -->
             <dependency>
                 <groupId>de.jangassen</groupId>
                 <artifactId>nsmenufx</artifactId>
@@ -511,12 +525,12 @@
             <dependency>
                 <groupId>org.carlfx</groupId>
                 <artifactId>cognitive</artifactId>
-                <version>1.6.1</version>
+                <version>${cognitive.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.pixelduke</groupId>
                 <artifactId>fxcomponents</artifactId>
-                <version>1.6.2</version>
+                <version>${fxcomponents.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.openjfx</groupId>
@@ -535,7 +549,7 @@
             <dependency>
                 <groupId>one.jpro</groupId>
                 <artifactId>jpro-webapi</artifactId>
-                <version>2025.2.0</version>
+                <version>${jpro.webapi.version}</version>
             </dependency>
             <dependency>
                 <groupId>one.jpro.platform</groupId>
@@ -550,17 +564,17 @@
             <dependency>
                 <groupId>one.jpro.platform.jpms</groupId>
                 <artifactId>testfx-core</artifactId>
-                <version>4.0.18-jpms</version>
+                <version>${one.jpro.platform.jpms.version}</version>
             </dependency>
             <dependency>
                 <groupId>one.jpro.platform.jpms</groupId>
                 <artifactId>testfx-junit5</artifactId>
-                <version>4.0.18-jpms</version>
+                <version>${one.jpro.platform.jpms.version}</version>
             </dependency>
             <dependency>
                 <groupId>one.jpro.platform.jpms</groupId>
                 <artifactId>openjfx-monocle</artifactId>
-                <version>21.0.2-jpms</version>
+                <version>${openjfx.monocle.version}</version>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
@@ -570,12 +584,27 @@
             <dependency>
                 <groupId>org.controlsfx</groupId>
                 <artifactId>controlsfx</artifactId>
-                <version>11.2.2</version>
+                <version>${controlsfx.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-controls</artifactId>
                 <version>${javafx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-fxml</artifactId>
+                <version>${javafx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>one.jpro.platform.jpms</groupId>
+                <artifactId>cssfx</artifactId>
+                <version>${one.jpro.platform.jpms.cssfx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.jpms</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.openjfx</groupId>
@@ -587,23 +616,6 @@
                 <artifactId>javafx-graphics</artifactId>
                 <version>${javafx.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-fxml</artifactId>
-                <version>${javafx.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>one.jpro.platform.jpms</groupId>
-                <artifactId>cssfx</artifactId>
-                <version>11.5.1-jpms</version>
-            </dependency>
-            <dependency>
-                <groupId>dev.ikm.jpms</groupId>
-                <artifactId>jsr305</artifactId>
-                <version>${jsr305.version}</version>
-            </dependency>
-
-
         </dependencies>
     </dependencyManagement>
 </project>
