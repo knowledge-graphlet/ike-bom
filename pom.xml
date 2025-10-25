@@ -59,6 +59,7 @@
         <one.jpro.platform.jpms.version>4.0.18-jpms</one.jpro.platform.jpms.version>
         <one.jpro.platform.jpms.cssfx.version>11.5.1-jpms</one.jpro.platform.jpms.cssfx.version>
         <openjfx.monocle.version>21.0.2-jpms</openjfx.monocle.version>
+        <jheaps.version>0.14-r11-fix-module-name-SNAPSHOT</jheaps.version>
     </properties>
 
     <dependencyManagement>
@@ -92,7 +93,7 @@
             <dependency>
                 <groupId>dev.ikm.jpms</groupId>
                 <artifactId>jheaps</artifactId>
-                <version>0.14-r11-fix-module-name-SNAPSHOT</version>
+                <version>${jheaps.version}</version>
             </dependency>
             <dependency>
                 <groupId>dev.ikm.jpms</groupId>
