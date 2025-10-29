@@ -28,7 +28,7 @@
         <java.version>25</java.version>
         <javafx.version>25</javafx.version>
         <jgrapht.version>1.5.2</jgrapht.version>
-        <jheaps.version>0.14-r11</jheaps.version>
+        <jheaps.version>0.14-r16</jheaps.version>
         <jna.version>5.18.1-r1-SNAPSHOT</jna.version>
         <jsr305.version>3.0.2-r7</jsr305.version>
         <junit-jupiter.version>6.0.0</junit-jupiter.version>
@@ -59,7 +59,6 @@
         <one.jpro.platform.jpms.version>4.0.18-jpms</one.jpro.platform.jpms.version>
         <one.jpro.platform.jpms.cssfx.version>11.5.1-jpms</one.jpro.platform.jpms.cssfx.version>
         <openjfx.monocle.version>21.0.2-jpms</openjfx.monocle.version>
-        <jheaps.version>0.14-r11-fix-module-name-SNAPSHOT</jheaps.version>
     </properties>
 
     <dependencyManagement>
