@@ -21,7 +21,7 @@
         <activej-bytebuf.version>4.3-r10</activej-bytebuf.version>
         <apfloat.version>1.14.0-r1</apfloat.version>
         <asm.version>9.9</asm.version>
-        <caffeine.version>3.2.2</caffeine.version>
+        <caffeine.version>3.2.3</caffeine.version>
         <dev.ikm.elk.version>0.39.6</dev.ikm.elk.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <hybrid-reasoner-snomed.version>1.1.7</hybrid-reasoner-snomed.version>
@@ -36,7 +36,7 @@
         <komet.version>1.58.0-miin-fix-SNAPSHOT</komet.version>
         <log4j.version>3.0.0-beta2</log4j.version>
         <lucene.version>10.3.1</lucene.version>
-        <maven-plugin-annotations.version>3.15.1</maven-plugin-annotations.version>
+        <maven-plugin-annotations.version>3.15.2</maven-plugin-annotations.version>
         <maven-plugin-api.version>4.0.0-rc-4</maven-plugin-api.version>
         <maven-plugin-plugin.version>3.15.1</maven-plugin-plugin.version>
         <mvstore.version>2.3.232-r3</mvstore.version>
