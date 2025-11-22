@@ -22,7 +22,7 @@
         <apfloat.version>1.14.0-r1</apfloat.version>
         <asm.version>9.9</asm.version>
         <caffeine.version>3.2.3</caffeine.version>
-        <dev.ikm.elk.version>0.39.6</dev.ikm.elk.version>
+        <dev.ikm.elk.version>0.39.7-progress-SNAPSHOT</dev.ikm.elk.version>
         <eclipse-collections.version>13.0.0</eclipse-collections.version>
         <hybrid-reasoner-snomed.version>1.1.7</hybrid-reasoner-snomed.version>
         <java.version>25</java.version>
