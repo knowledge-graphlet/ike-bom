@@ -275,6 +275,11 @@
             </dependency>
             <dependency>
                 <groupId>dev.ikm.komet</groupId>
+                <artifactId>knowledge-layout-editor</artifactId>
+                <version>${komet.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.ikm.komet</groupId>
                 <artifactId>details</artifactId>
                 <version>${komet.version}</version>
             </dependency>
