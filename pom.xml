@@ -645,4 +645,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+                <configuration>
+                    <postReleaseGoals>deploy</postReleaseGoals>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
