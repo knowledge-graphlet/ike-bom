@@ -12,7 +12,7 @@
     <groupId>dev.ikm.ike</groupId>
     <artifactId>ike-bom</artifactId>
     <version>3.0.2-SNAPSHOT</version>
-    <packaging>bom</packaging>
+    <packaging>pom</packaging>
 
     <name>IKE BOM</name>
     <description>Centralizes dependency versions for all IKE incubator modules.</description>
