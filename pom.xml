@@ -649,11 +649,11 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.amashchenko.maven.plugin</groupId>
+                <groupId>dev.ikm</groupId>
                 <artifactId>gitflow-maven-plugin</artifactId>
                 <version>1.21.1-r11</version>
                 <configuration>
-                    <releaseGoals>clean deploy</releaseGoals>
+                    <postReleaseGoals>deploy</postReleaseGoals>
                 </configuration>
             </plugin>
         </plugins>
