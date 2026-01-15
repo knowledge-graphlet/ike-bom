@@ -17,6 +17,17 @@
     <name>IKE BOM</name>
     <description>Centralizes dependency versions for all IKE incubator modules.</description>
 
+    <distributionManagement>
+        <repository>
+            <id>${deploy.release.id}</id>
+            <url>${deploy.release.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${deploy.snapshot.id}</id>
+            <url>${deploy.snapshot.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
         <activej-bytebuf.version>4.3-r10</activej-bytebuf.version>
         <apfloat.version>1.14.0-r1</apfloat.version>
