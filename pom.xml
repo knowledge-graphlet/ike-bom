@@ -651,8 +651,9 @@
             <plugin>
                 <groupId>com.amashchenko.maven.plugin</groupId>
                 <artifactId>gitflow-maven-plugin</artifactId>
+                <version>1.21.1-r11</version>
                 <configuration>
-                    <postReleaseGoals>deploy</postReleaseGoals>
+                    <releaseGoals>clean deploy</releaseGoals>
                 </configuration>
             </plugin>
         </plugins>
