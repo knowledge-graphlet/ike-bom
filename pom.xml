@@ -19,11 +19,11 @@
 
     <distributionManagement>
         <repository>
-            <id>releases</id>
+            <id>ike-releases</id>
             <url>${deploy.release.url}</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>ike-snapshots</id>
             <url>${deploy.snapshot.url}</url>
         </snapshotRepository>
     </distributionManagement>
