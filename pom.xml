@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <name>IKE BOM</name>
-    <description>Centralizes dependency versions for all IKE incubator modules.</description>
+    <description>Centralizes dependency versions for all IKE incubator modules</description>
 
     <distributionManagement>
         <repository>
