@@ -44,7 +44,7 @@
         <jsr305.version>3.0.2-r7</jsr305.version>
         <junit-jupiter.version>6.0.0</junit-jupiter.version>
         <junit-platform.version>6.0.0</junit-platform.version>
-        <komet.version>1.58.0-lifecycle-SNAPSHOT</komet.version>
+        <komet.version>1.58.0-SNAPSHOT</komet.version>
         <log4j.version>3.0.0-beta2</log4j.version>
         <lucene.version>10.3.1</lucene.version>
         <maven-plugin-annotations.version>3.15.2</maven-plugin-annotations.version>
@@ -53,7 +53,7 @@
         <mvstore.version>2.3.232-r3</mvstore.version>
         <nsmenufx.version>3.1.0</nsmenufx.version>
         <one.jpro.platform.version>0.5.7</one.jpro.platform.version>
-        <rocks-kb.version>0.1.0-SNAPSHOT</rocks-kb.version>
+        <rocks-kb.version>0.1.0-kec-jan-19-SNAPSHOT</rocks-kb.version>
         <rocksdbjni.version>10.4.2.r1-SNAPSHOT</rocksdbjni.version>
 
         <tinkar-composer.version>1.10.0</tinkar-composer.version>
