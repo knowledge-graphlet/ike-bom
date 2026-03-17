@@ -15,5 +15,5 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
-/.claude
-/.DS_Store
+.DS_Store
+.claude
