@@ -6,12 +6,12 @@
     <parent>
         <groupId>network.ike</groupId>
         <artifactId>ike-parent</artifactId>
-        <version>19</version>
+        <version>20</version>
     </parent>
 
     <groupId>dev.ikm.ike</groupId>
     <artifactId>ike-bom</artifactId>
-    <version>3.0.7-kec-jan-19-SNAPSHOT</version>
+    <version>3.0.7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>IKE BOM</name>
