@@ -798,6 +798,10 @@
                         <groupId>org.jheaps</groupId>
                         <artifactId>jheaps</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.apfloat</groupId>
+                        <artifactId>apfloat</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
 
